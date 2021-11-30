@@ -1,0 +1,22 @@
+{
+    "enabled": true,
+    "trigger": [
+      {
+        "action": "LINE_NOTIFY",
+        "event": "SHADOW.UPDATED",
+        "condition": "$.Servo > 90",
+        "msg": "Servo degree is more than 90 degree",
+        "option": {
+          "linetoken": "cbfx4koVO80X7NK3r4B48OVeaOIjFGmo7YRoCwSGxyY"
+        }
+      },
+      {
+        "action": "LINE_NOTIFY",
+        "event": "DEVICE.STATUSCHANGED",
+        "msg": "My Device {{$.statustext}}, statuscode: {{$.status}}",
+        "option": {
+          "linetoken": "cbfx4koVO80X7NK3r4B48OVeaOIjFGmo7YRoCwSGxyY"
+        }
+      }
+    ]
+  }
