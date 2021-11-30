@@ -1,0 +1,111 @@
+{
+ "version": "application/octet-stream",
+ "allow_edit": true,
+ "plugins": [],
+ "panes": [
+  {
+   "width": 1,
+   "row": {
+    "2": 1,
+    "3": 1
+   },
+   "col": {
+    "2": 1,
+    "3": 1
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "Slider",
+     "settings": {
+      "caption": "Servo Degree",
+      "color": "grey",
+      "showvalue": 1,
+      "min": 0,
+      "max": "180",
+      "step": 1,
+      "initialvalue": "0",
+      "autovaluesource": "datasources[\"ESP32\"][\"shadow\"][\"Servo\"]",
+      "onStop": "netpie[\"ESP32\"].publish(\"@msg/Servo\",value.toString())"
+     }
+    },
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Updated LED Brightness",
+      "value": "datasources[\"ESP32\"][\"shadow\"][\"Servo\"]",
+      "units": "Degree",
+      "min_value": 0,
+      "max_value": "180"
+     }
+    }
+   ]
+  },
+  {
+   "width": 1,
+   "row": {
+    "2": 1,
+    "3": 1
+   },
+   "col": {
+    "2": 2,
+    "3": 2
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Temperature",
+      "value": "datasources[\"ESP32\"][\"shadow\"][\"temperature\"]",
+      "units": "C",
+      "min_value": 0,
+      "max_value": 100
+     }
+    }
+   ]
+  },
+  {
+   "width": 1,
+   "row": {
+    "2": 9,
+    "3": 1
+   },
+   "col": {
+    "2": 2,
+    "3": 3
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Humidity",
+      "value": "datasources[\"ESP32\"][\"shadow\"][\"humidity\"]",
+      "units": "%",
+      "min_value": 0,
+      "max_value": 100
+     }
+    }
+   ]
+  }
+ ],
+ "datasources": [
+  {
+   "name": "ESP32",
+   "type": "netpiex_datasource",
+   "settings": {
+    "name": "ESP32",
+    "deviceid": "46ac06a6-bce6-48af-8605-4238e3e1eeb3",
+    "devicetoken": "iosgvE1fgTJNRsdBVNHLc3Xbsyc5QcjX",
+    "feed": true,
+    "feed_since_value": "1",
+    "feed_since_unit": "days",
+    "feed_downsampling": "1",
+    "feed_downsampling_unit": "minutes"
+   }
+  }
+ ],
+ "columns": 3,
+ "theme": "default"
+}
